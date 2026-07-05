@@ -11,19 +11,16 @@ import { OrmDetector } from './detectors/orm.detector';
 import { RemoteAgentModule } from '../remote-agent/remote-agent.module';
 
 @Module({
-    imports: [
-        TypeOrmModule.forFeature([ProjectSnapshot]),
-        RemoteAgentModule,
-    ],
-    controllers: [ProjectDiscoveryController],
-    providers: [
-        DiscoveryService,
-        SnapshotService,
-        FrameworkDetector,
-        LanguageDetector,
-        DatabaseDetector,
-        OrmDetector,
-    ],
-    exports: [SnapshotService],
+  imports: [TypeOrmModule.forFeature([ProjectSnapshot]), RemoteAgentModule],
+  controllers: [ProjectDiscoveryController],
+  providers: [
+    DiscoveryService,
+    SnapshotService,
+    FrameworkDetector,
+    LanguageDetector,
+    DatabaseDetector,
+    OrmDetector,
+  ],
+  exports: [SnapshotService],
 })
-export class ProjectDiscoveryModule { }
+export class ProjectDiscoveryModule {}

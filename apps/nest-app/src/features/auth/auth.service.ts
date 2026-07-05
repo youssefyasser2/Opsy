@@ -47,7 +47,8 @@ export class AuthService {
     }
 
     const token = await this.jwtService.signAsync({ sub: user.id });
-    const { password, ...safeUser } = user;
+    const safeUser = { ...user };
+    delete (safeUser as { password?: string }).password;
 
     return { message, user: safeUser, token };
   }
@@ -97,6 +98,7 @@ export class AuthService {
     };
   }
 
+  // eslint-disable-next-line @typescript-eslint/require-await
   async logout(userId: string) {
     const message = 'User logged out successfully';
     return { message, userId };

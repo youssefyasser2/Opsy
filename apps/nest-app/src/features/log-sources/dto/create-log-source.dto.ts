@@ -1,5 +1,4 @@
 import { IsObject, IsOptional, IsString } from 'class-validator';
-import { LogSourcesStatus } from '../enums/log-sources-status.enum';
 import { LogSourcesType } from '../enums/log-sources-type.enum';
 
 export class CreateLogSourceDto {

@@ -9,27 +9,27 @@ import { RegistrationService } from './registration.service';
 
 @Injectable()
 export class HeartbeatService {
-    constructor(
-        @InjectRepository(RemoteAgent)
-        private readonly remoteAgentsRepository: Repository<RemoteAgent>,
-        private readonly registrationService: RegistrationService,
-    ) { }
+  constructor(
+    @InjectRepository(RemoteAgent)
+    private readonly remoteAgentsRepository: Repository<RemoteAgent>,
+    private readonly registrationService: RegistrationService,
+  ) {}
 
-    async heartbeat(agentId: string, dto: HeartbeatRemoteAgentDto) {
-        const agent = await this.registrationService.findActiveAgent(agentId);
+  async heartbeat(agentId: string, dto: HeartbeatRemoteAgentDto) {
+    const agent = await this.registrationService.findActiveAgent(agentId);
 
-        const now = new Date();
-        agent.connectionStatus =
-            dto.connectionStatus ?? RemoteAgentConnectionStatus.ONLINE;
-        agent.status = RemoteAgentStatus.ACTIVE;
-        agent.lastHeartbeatAt = now;
-        agent.lastSeenAt = now;
+    const now = new Date();
+    agent.connectionStatus =
+      dto.connectionStatus ?? RemoteAgentConnectionStatus.ONLINE;
+    agent.status = RemoteAgentStatus.ACTIVE;
+    agent.lastHeartbeatAt = now;
+    agent.lastSeenAt = now;
 
-        const savedAgent = await this.remoteAgentsRepository.save(agent);
+    const savedAgent = await this.remoteAgentsRepository.save(agent);
 
-        return {
-            message: 'Heartbeat received',
-            agent: savedAgent,
-        };
-    }
+    return {
+      message: 'Heartbeat received',
+      agent: savedAgent,
+    };
+  }
 }

@@ -31,10 +31,7 @@ export class LogSourcesController {
   }
 
   @Get(':id')
-  findOne(
-    @Param('id') id: string,
-    @CurrentUser() user: CurrentUserType,
-  ) {
+  findOne(@Param('id') id: string, @CurrentUser() user: CurrentUserType) {
     return this.logSourcesService.findOne(id, user.id);
   }
 
@@ -44,18 +41,11 @@ export class LogSourcesController {
     @Body() updateLogSourceDto: UpdateLogSourceDto,
     @CurrentUser() user: CurrentUserType,
   ) {
-    return this.logSourcesService.update(
-      id,
-      updateLogSourceDto,
-      user.id,
-    );
+    return this.logSourcesService.update(id, updateLogSourceDto, user.id);
   }
 
   @Delete(':id')
-  remove(
-    @Param('id') id: string,
-    @CurrentUser() user: CurrentUserType,
-  ) {
+  remove(@Param('id') id: string, @CurrentUser() user: CurrentUserType) {
     return this.logSourcesService.remove(id, user.id);
   }
 }

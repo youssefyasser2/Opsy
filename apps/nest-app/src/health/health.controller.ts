@@ -13,9 +13,9 @@ export class HealthController {
       status: 'UP',
 
       service: {
-        name: this.configService.get('APP_NAME'),
-        version: this.configService.get('APP_VERSION'),
-        environment: this.configService.get('NODE_ENV'),
+        name: this.configService.get<string>('APP_NAME'),
+        version: this.configService.get<string>('APP_VERSION'),
+        environment: this.configService.get<string>('NODE_ENV'),
       },
 
       server: {

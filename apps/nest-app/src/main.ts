@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core';
+import { LoggerService } from '@nestjs/common';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
 import { AppModule } from './app.module';
@@ -15,7 +16,7 @@ async function bootstrap() {
     credentials: true,
   });
 
-  const logger = app.get(WINSTON_MODULE_NEST_PROVIDER);
+  const logger = app.get<LoggerService>(WINSTON_MODULE_NEST_PROVIDER);
   process.on('unhandledRejection', (reason) => {
     logger.error('Unhandled Rejection', reason);
   });
@@ -35,4 +36,7 @@ async function bootstrap() {
   await app.listen(process.env.PORT ?? 5000);
 }
 
-bootstrap();
+bootstrap().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

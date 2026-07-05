@@ -33,4 +33,4 @@ import agentConfig from './config/agent.config';
   controllers: [],
   providers: [...GLOBAL_PROVIDERS],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,7 +1,4 @@
-import {
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -20,8 +17,8 @@ export class UsersService {
   ) {}
 
   private toSafeUser(user: User): SafeUser {
-    const { password: _password, ...safeUser } = user;
-
+    const safeUser = { ...user };
+    delete (safeUser as Partial<User>).password;
     return safeUser;
   }
 
@@ -41,9 +38,13 @@ export class UsersService {
       return password === storedPassword;
     }
 
-    const hashToCompare = pbkdf2Sync(password, salt, 100000, 64, 'sha512').toString(
-      'hex',
-    );
+    const hashToCompare = pbkdf2Sync(
+      password,
+      salt,
+      100000,
+      64,
+      'sha512',
+    ).toString('hex');
 
     return hashToCompare === hashedPassword;
   }

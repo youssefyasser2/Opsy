@@ -10,27 +10,27 @@ import { AuthenticationService } from './services/authentication.service';
 import { HeartbeatService } from './services/heartbeat.service';
 
 @Module({
-    imports: [
-        ConfigModule,
-        TypeOrmModule.forFeature([RemoteAgent]),
-        JwtModule.registerAsync({
-            imports: [ConfigModule],
-            inject: [ConfigService],
-            useFactory: (config: ConfigService) => ({
-                secret: config.getOrThrow('agent.tokenSecret'),
-                signOptions: {
-                    expiresIn: config.getOrThrow('agent.tokenExpiresIn'),
-                },
-            }),
-        }),
-    ],
-    controllers: [RemoteAgentController],
-    providers: [
-        RegistrationService,
-        AuthenticationService,
-        HeartbeatService,
-        AgentAuthGuard,
-    ],
-    exports: [RegistrationService, AgentAuthGuard, JwtModule],
+  imports: [
+    ConfigModule,
+    TypeOrmModule.forFeature([RemoteAgent]),
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => ({
+        secret: config.getOrThrow('agent.tokenSecret'),
+        signOptions: {
+          expiresIn: config.getOrThrow('agent.tokenExpiresIn'),
+        },
+      }),
+    }),
+  ],
+  controllers: [RemoteAgentController],
+  providers: [
+    RegistrationService,
+    AuthenticationService,
+    HeartbeatService,
+    AgentAuthGuard,
+  ],
+  exports: [RegistrationService, AgentAuthGuard, JwtModule],
 })
-export class RemoteAgentModule { }
+export class RemoteAgentModule {}
