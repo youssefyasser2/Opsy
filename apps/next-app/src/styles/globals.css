@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050816;
+  --foreground: #f8fafc;
+  --card: #0b1120;
+  --muted: #111827;
+  --muted-foreground: #94a3b8;
+  --secondary: #162033;
+  --border: #243044;
+  --cyan: #22d3ee;
+  --purple: #a855f7;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-secondary: var(--secondary);
+  --color-border: var(--border);
+  --color-cyan: var(--cyan);
+  --color-purple: var(--purple);
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Fira Code", Consolas, monospace;
+}
+
+@keyframes drift {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -12px, 0) scale(1.02);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes aurora1 {
+
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  40% {
+    opacity: 0.55;
+    transform: translate(-50%, -3%) scale(1.06);
+  }
+
+  70% {
+    opacity: 0.4;
+    transform: translate(-50%, 2%) scale(0.97);
+  }
+}
+
+@keyframes aurora2 {
+
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translate(0, 0) scale(1);
+  }
+
+  35% {
+    opacity: 0.35;
+    transform: translate(-2%, -4%) scale(1.08);
+  }
+
+  65% {
+    opacity: 0.15;
+    transform: translate(3%, 2%) scale(0.95);
+  }
+}
+
+@keyframes aurora3 {
+
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    opacity: 0.28;
+    transform: translate(3%, -5%) scale(1.1);
+  }
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 54px 54px;
+  background-position: center;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--cyan) 0%, #7dd3fc 42%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow-border {
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.08),
+    0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.glow-cyan {
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.18),
+    0 0 32px rgba(34, 211, 238, 0.35);
+}
+
+.hover\:glow-cyan:hover {
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.18),
+    0 0 32px rgba(34, 211, 238, 0.35);
+}
+
+.animate-drift {
+  animation: drift 8s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+.animate-glow-pulse,
+.animate-pulse-glow {
+  animation: glowPulse 3.5s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% 200%;
+  animation: shimmer 14s ease infinite;
+}
+
+.animate-aurora-1 {
+  animation: aurora1 18s ease-in-out infinite;
+}
+
+.animate-aurora-2 {
+  animation: aurora2 22s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+.animate-aurora-3 {
+  animation: aurora3 26s ease-in-out infinite;
+  animation-delay: -10s;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.35);
+  color: #ffffff;
+}

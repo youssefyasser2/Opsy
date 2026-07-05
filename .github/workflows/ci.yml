@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint backend
+        run: pnpm --dir apps/nest-app lint
+
+      - name: Lint frontend
+        run: pnpm --dir apps/next-app lint
+
+      - name: Build backend
+        run: pnpm --dir apps/nest-app build
+
+      - name: Build frontend
+        run: pnpm --dir apps/next-app build
+
+      - name: Run backend tests
+        run: pnpm --dir apps/nest-app test -- --run

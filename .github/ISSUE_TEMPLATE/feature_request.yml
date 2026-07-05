@@ -1,0 +1,41 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for Opsy
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Check the [roadmap](../../blob/main/docs/ROADMAP.md) first to see if it's already planned.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What problem does this feature solve? What is the motivation?
+      placeholder: "I often find myself needing to... and currently there's no way to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe how you'd like this feature to work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Have you considered any alternative solutions or workarounds?
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I checked the roadmap and this is not already planned.
+          required: true
+        - label: I searched existing issues and this is not a duplicate.
+          required: true

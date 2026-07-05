@@ -1,0 +1,28 @@
+{
+  "name": "opsy",
+  "description": "A self-hosted infrastructure management platform",
+  "private": true,
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9"
+  },
+  "scripts": {
+    "dev": "bash scripts/dev.sh",
+    "dev:backend": "pnpm --dir apps/nest-app start:dev",
+    "dev:frontend": "pnpm --dir apps/next-app dev",
+    "start": "bash scripts/start.sh",
+    "start:backend": "pnpm --dir apps/nest-app start:prod",
+    "start:frontend": "pnpm --dir apps/next-app start",
+    "build": "pnpm --dir apps/nest-app build && pnpm --dir apps/next-app build",
+    "lint": "pnpm --dir apps/nest-app lint && pnpm --dir apps/next-app lint",
+    "test": "pnpm --dir apps/nest-app test -- --run",
+    "test:e2e": "pnpm --dir apps/nest-app test:e2e",
+    "test:cov": "pnpm --dir apps/nest-app test:cov",
+    "increase-watch-limit": "bash scripts/increase-watch-limit.sh",
+    "docker:up": "docker compose -f docker/docker-compose.yml up --build",
+    "docker:down": "docker compose -f docker/docker-compose.yml down",
+    "docker:build": "docker compose -f docker/docker-compose.yml build",
+    "docker:logs": "docker compose -f docker/docker-compose.yml logs -f"
+  }
+}
