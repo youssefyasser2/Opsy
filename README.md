@@ -24,7 +24,7 @@ Opsy is a full-stack infrastructure management platform that gives you a clean w
 
 Built on a **NestJS** backend and a **Next.js** frontend inside a **pnpm monorepo**, Opsy is designed to scale from a personal homelab to a small operations team.
 
----
+----
 
 ## Features
 
