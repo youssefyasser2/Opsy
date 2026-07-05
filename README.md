@@ -5,9 +5,6 @@
   <p>Manage your remote servers, deployments, and operations from a single, modern interface.</p>
 
   <p>
-    <a href="https://github.com/youssefyasser/opsy/actions/workflows/ci.yml">
-      <img src="https://github.com/youssefyasser/opsy/actions/workflows/ci.yml/badge.svg" alt="CI" />
-    </a>
     <a href="LICENSE">
       <img src="https://img.shields.io/badge/license-Proprietary-red.svg" alt="License" />
     </a>
