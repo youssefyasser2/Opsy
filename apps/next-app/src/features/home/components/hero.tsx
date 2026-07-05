@@ -82,7 +82,7 @@ export default function Hero() {
             </div>
           </TerminalCard>
 
-          <TerminalCard className="animate-float" style={{ animationDelay: "0.2s" } as any}>
+          <TerminalCard className="animate-float" style={{ animationDelay: "0.2s" } as CSSProperties}>
             <div className="flex items-center gap-2 text-muted-foreground">
               <GitCommit size={14} className="text-green-400" />
               <span className="font-mono text-[10px] tracking-wider uppercase">Deployments</span>
@@ -102,7 +102,7 @@ export default function Hero() {
             </div>
           </TerminalCard>
 
-          <TerminalCard className="animate-float" style={{ animationDelay: "0.4s" } as any}>
+          <TerminalCard className="animate-float" style={{ animationDelay: "0.4s" } as CSSProperties}>
             <div className="flex items-center gap-2 text-muted-foreground">
               <TrendingUp size={14} className="text-purple" />
               <span className="font-mono text-[10px] tracking-wider uppercase">Commit Activity</span>
@@ -119,7 +119,7 @@ export default function Hero() {
             <div className="mt-3 font-mono text-[10px] text-muted-foreground/60">+342 commits / 7d</div>
           </TerminalCard>
 
-          <TerminalCard className="animate-float" style={{ animationDelay: "0.6s" } as any}>
+          <TerminalCard className="animate-float" style={{ animationDelay: "0.6s" } as CSSProperties}>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Cpu size={14} className="text-orange-400" />
               <span className="font-mono text-[10px] tracking-wider uppercase">CPU Usage</span>
