@@ -3,6 +3,7 @@
   "description": "A self-hosted infrastructure management platform",
   "private": true,
   "version": "0.1.0",
+  "packageManager": "pnpm@10.17.1",
   "engines": {
     "node": ">=22",
     "pnpm": ">=9"
